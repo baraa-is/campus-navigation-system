@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Academic City Navigator — Map</title>
+    <link rel="stylesheet" href="nav.css">
+    <style>
+      .burger {
+        display: none;
+        flex-direction: column;
+        cursor: pointer;
+        gap: 5px;
+      }
+      .burger div {
+        width: 24px;
+        height: 3px;
+        background: white;
+        border-radius: 2px;
+      }
+@media (max-width: 768px) {
+        nav {
+          display: none;
+          flex-direction: column;
+          background: linear-gradient(90deg, var(--primary), var(--brand));
+          position: absolute;
+          top: 64px;
+          right: 18px;
+          padding: 12px;
+          border-radius: 8px;
+          box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+          z-index: 100;
+        }
+        nav.open {
+          display: flex;
+          z-index: 1000;
+        }
+        .burger {
+          display: flex;
+        }
+      }
+
+      :root{--primary:#0f172a;--brand:#1e40af;--accent:#d4af37;--bg:#f6f8fb;--muted:#6b7280}
+      *{box-sizing:border-box} body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial;background:var(--bg);color:var(--primary)}
+      header{background:linear-gradient(90deg,var(--primary),var(--brand));color:white;padding:16px 20px;position:sticky;top:0;z-index:20}
+      .container{max-width:1100px;margin:0 auto;padding:0 18px}
+      .nav{display:flex;align-items:center;gap:20px}
+      .brand{font-weight:700;font-size:18px;letter-spacing:0.4px}
+      nav a{color:rgba(255,255,255,0.9);text-decoration:none;padding:8px 12px;border-radius:8px}
+      nav a.active, nav a:hover{background:rgba(255,255,255,0.06)}
+      main{padding:28px 0}
+      .hero{background-image:url('https://images.unsplash.com/photo-1505751172876-fa1923c5c528?auto=format&fit=crop&w=1400&q=60');background-size:cover;background-position:center;border-radius:14px;padding:48px;color:white;box-shadow:0 8px 30px rgba(16,24,40,.12)}
+      .hero h1{margin:0;font-size:28px ;color:black;}
+      .map-wrap{margin-top:18px;background:#fff;border-radius:12px;overflow:hidden;box-shadow:0 6px 22px rgba(16,24,40,0.08)}
+      .map-frame{width:100%;height:560px;border:0;display:block}
+      .meta{margin-top:10px;color:white}
+      footer{background:var(--primary);color:white;padding:22px 0;margin-top:26px}
+      .footer-grid{max-width:1100px;margin:0 auto;padding:0 18px;display:grid;grid-template-columns:240px 1fr 240px;gap:18px}
+      @media (max-width:900px){.map-frame{height:380px}.footer-grid{grid-template-columns:1fr}}
+      .fade-in{animation:fadeIn .6s ease both}
+      @keyframes fadeIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+      @media (prefers-reduced-motion:reduce){*{animation:none;transition:none}}
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="container nav">
+        <div class="brand">Academic City Navigator</div>
+        <div class="burger" id="burger">
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+        <nav style="margin-left: auto" id="nav">
+          <a href="index.html">Home</a>
+          <a href="map.html" class="active">Map</a>
+          <a href="universities.html">Universities</a>
+          <a href="departments.html">Departments</a>
+          <a href="housing.html">Housing</a>
+          <a href="facilities.html">Facilities</a>
+          <a href="transport.html">Transport</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="container">
+      <section class="hero fade-in" aria-hidden="false">
+        <h1>DIAC Interactive Map</h1>
+        <p class="meta">
+          Pan, zoom, and click universities or facilities to learn more.
+        </p>
+      </section>
+
+      <div class="map-wrap fade-in" style="margin-top: 18px">
+        <!-- live embed — keep or replace with your own embed key -->
+        <iframe
+          class="map-frame"
+          loading="lazy"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3608.225068089285!2d55.39092657503189!3d25.1183382777591!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f6e77b2c7b96f%3A0x845b0708d0fda7ab!2sDubai%20International%20Academic%20City!5e0!3m2!1sen!2sae!4v1731264899460!5m2!1sen!2sae"
+        >
+        </iframe>
+      </div>
+    </main>
+
+    <footer>
+      <div class="footer-grid">
+        <div>
+          <strong>Academic City Navigator</strong>
+          <div style="margin-top: 8px; color: rgba(255, 255, 255, 0.9)">
+            Map powered by Google Maps • DIAC
+          </div>
+        </div>
+        <div style="color: rgba(255, 255, 255, 0.95)">
+          <strong>Quick links</strong>
+          <div style="margin-top: 8px">
+            <a
+              href="universities.html"
+              style="color: inherit; text-decoration: none"
+              >Universities</a
+            >
+            · <a href="housing.html" style="color: inherit">Housing</a> ·
+            <a href="transport.html" style="color: inherit">Transport</a>
+          </div>
+        </div>
+        <div>
+          <strong>Contact</strong>
+          <div style="margin-top: 8px; color: rgba(255, 255, 255, 0.9)">
+            contact@academiccity.ae<br />+971 4 123 4567
+          </div>
+        </div>
+      </div>
+    </footer>
+    <script>
+      const burger = document.getElementById("burger");
+      const nav = document.getElementById("nav");
+      burger.addEventListener("click", () => {
+        nav.classList.toggle("open");
+      });
+    </script>
+  </body>
+</html>

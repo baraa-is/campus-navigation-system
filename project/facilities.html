@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Academic City — Facilities</title>
+    <link rel="stylesheet" href="nav.css">
+    <style>
+      
+
+      :root {
+        --primary: #0f172a;
+        --brand: #1e40af;
+        --accent: #d4af37;
+        --bg: #f6f8fb;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        font-family: Inter, system-ui, Roboto, Arial;
+        background: var(--bg);
+        color: var(--primary);
+      }
+      header {
+        background: linear-gradient(90deg, var(--primary), var(--brand));
+        color: white;
+        padding: 16px;
+      }
+      .container {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 0 18px;
+      }
+      .nav {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+      }
+      .brand {
+        font-weight: 700;
+        font-size: 18px;
+        letter-spacing: 0.4px;
+      }
+      nav a {
+        color: rgba(255, 255, 255, 0.9);
+        text-decoration: none;
+        padding: 8px 12px;
+        border-radius: 8px;
+      }
+      nav a.active,
+      nav a:hover {
+        background: rgba(255, 255, 255, 0.06);
+      }
+      main {
+        padding: 28px 0;
+      }
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        gap: 18px;
+      }
+      .card {
+        background: white;
+        border-radius: 12px;
+        padding: 16px;
+        box-shadow: 0 6px 18px rgba(16, 24, 40, 0.06);
+        transition: transform 0.2s;
+      }
+      .card:hover {
+        transform: translateY(-6px);
+      }
+      footer {
+        background: var(--primary);
+        color: #fff;
+        padding: 24px;
+        margin-top: 24px;
+      }
+      .footer-grid {
+        max-width: 1100px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: 240px 1fr 240px;
+        gap: 18px;
+        padding: 0 18px;
+      }
+      @media (max-width: 900px) {
+        .footer-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+      .fade-in {
+        animation: fadeIn 0.6s ease both;
+      }
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(6px);
+        }
+        to {
+          opacity: 1;
+          transform: none;
+        }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        * {
+          animation: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="container nav">
+        <div class="brand">Academic City Navigator</div>
+        <div class="burger" id="burger">
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+        <nav id="nav" style="margin-left: auto">
+          <a href="index.html">Home</a>
+          <a href="map.html">Map</a>
+          <a href="universities.html">Universities</a>
+          <a href="departments.html">Departments</a>
+          <a href="housing.html">Housing</a>
+          <a href="facilities.html" class="active">Facilities</a>
+          <a href="transport.html">Transport</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="container">
+      <section class="hero fade-in">
+        <h1>Campus Facilities</h1>
+        <p style="opacity: 0.92; margin-top: 8px">
+          Libraries, food courts, sports and student services located across
+          DIAC.
+        </p>
+      </section>
+
+      <section style="margin-top: 20px" class="fade-in">
+        <div class="grid">
+          <div class="card">
+            <h3>DIAC Library</h3>
+            <p>
+              Central resource for students with study rooms and digital access.
+            </p>
+          </div>
+          <div class="card">
+            <h3>Cafeterias & Coffee</h3>
+            <p>
+              Multiple cafes including international chains and campus food
+              courts.
+            </p>
+          </div>
+          <div class="card">
+            <h3>Sports Complex</h3>
+            <p>Indoor courts, gym and outdoor fields available to students.</p>
+          </div>
+          <div class="card">
+            <h3>Student Services</h3>
+            <p>Help with visas, enrollment, and counseling.</p>
+          </div>
+          <div class="card">
+            <h3>Parking</h3>
+            <p>Shaded parking zones near primary university blocks.</p>
+          </div>
+          <div class="card">
+            <h3>Prayer Rooms</h3>
+            <p>Gender-segregated prayer rooms across campus buildings.</p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="footer-grid">
+        <div>
+          <strong>Academic City Navigator</strong>
+          <div style="margin-top: 8px">Facility listings for DIAC.</div>
+        </div>
+        <div>
+          <strong>Explore</strong>
+          <div style="margin-top: 8px">
+            <a href="facilities.html" style="color: #fff; text-decoration: none"
+              >Facilities</a
+            >
+            · <a href="map.html" style="color: #fff">Map</a>
+          </div>
+        </div>
+        <div>
+          <strong>Contact</strong>
+          <div style="margin-top: 8px">
+            facilities@academiccity.ae<br />+971 4 123 4567
+          </div>
+        </div>
+      </div>
+    </footer>
+    <script>
+      const burger = document.getElementById("burger");
+      const nav = document.getElementById("nav");
+      burger.addEventListener("click", () => {
+        nav.classList.toggle("open");
+      });
+    </script>
+  </body>
+</html>

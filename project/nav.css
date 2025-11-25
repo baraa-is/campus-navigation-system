@@ -1,0 +1,84 @@
+.nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+      .brand {
+        font-weight: 700;
+        font-size: 18px;
+        letter-spacing: 0.4px;
+      }
+      nav {
+        display: flex;
+        gap: 20px;
+      }
+      nav a {
+        color: rgba(255, 255, 255, 0.9);
+        text-decoration: none;
+        padding: 8px 12px;
+        border-radius: 8px;
+      }
+      nav a.active,
+      nav a:hover {
+        background: rgba(255, 255, 255, 0.06);
+      }
+
+      /* Burger Menu Button */
+      .burger {
+        display: none;
+        flex-direction: column;
+        cursor: pointer;
+        gap: 5px;
+      }
+      .burger div {
+        width: 24px;
+        height: 3px;
+        background: white;
+        border-radius: 2px;
+      }
+
+      /* Mobile Styles */
+      @media (max-width: 768px) {
+        nav {
+          display: none;
+          flex-direction: column;
+          background: linear-gradient(90deg, var(--primary), var(--brand));
+          position: absolute;
+          top: 64px;
+          right: 18px;
+          padding: 12px;
+          border-radius: 8px;
+          box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+          z-index: 100;
+        }
+        nav.open {
+          display: flex;
+          z-index: 1000;
+        }
+        .burger {
+          display: flex;
+        }
+      }
+@media (max-width: 900px) {
+        .footer-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+      .fade-in {
+        animation: fadeIn 0.6s ease both;
+      }
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(6px);
+        }
+        to {
+          opacity: 1;
+          transform: none;
+        }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        * {
+          animation: none;
+        }
+      }

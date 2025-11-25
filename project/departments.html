@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Academic City — Departments</title>
+    <link rel="stylesheet" href="nav.css">
+    <style>
+      .burger {
+        display: none;
+        flex-direction: column;
+        cursor: pointer;
+        gap: 5px;
+      }
+      .burger div {
+        width: 24px;
+        height: 3px;
+        background: white;
+        border-radius: 2px;
+      }
+      @media (max-width: 768px) {
+        nav {
+          display: none;
+          flex-direction: column;
+          background: linear-gradient(90deg, var(--primary), var(--brand));
+          position: absolute;
+          top: 64px;
+          right: 18px;
+          padding: 12px;
+          border-radius: 8px;
+          box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+          z-index: 100;
+        }
+        nav.open {
+          display: flex;
+          z-index: 1000;
+        }
+        .burger {
+          display: flex;
+        }
+      }
+
+      :root {
+        --primary: #0f172a;
+        --brand: #1e40af;
+        --accent: #d4af37;
+        --bg: #f5f7fa;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        font-family: Inter, system-ui, Roboto, Arial;
+        background: var(--bg);
+        color: var(--primary);
+      }
+      header {
+        background: linear-gradient(90deg, var(--primary), var(--brand));
+        color: white;
+        padding: 16px;
+      }
+      .container {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 0 18px;
+      }
+      .nav {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+      }
+      .brand {
+        font-weight: 700;
+        font-size: 18px;
+        letter-spacing: 0.4px;
+      }
+      nav a {
+        color: rgba(255, 255, 255, 0.9);
+        text-decoration: none;
+        padding: 8px 12px;
+        border-radius: 8px;
+      }
+      nav a.active,
+      nav a:hover {
+        background: rgba(255, 255, 255, 0.06);
+      }
+      .hero {
+        background-image: url("https://images.unsplash.com/photo-1664291586785-69e003c32ff7?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fGRlcGFydG1lbnRzJTIwZm9yJTIwc3R1ZGVudHN8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&q=60&w=600");
+        background-size: cover;
+        background-position: center;
+        padding: 64px;
+        border-radius: 12px;
+        color: white;
+        box-shadow: 0 8px 30px rgba(16, 24, 40, 0.12);
+      }
+      .hero h1 {
+        margin: 0;
+        font-size: 30px;
+      }
+      main {
+        padding: 28px 0;
+      }
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        gap: 18px;
+      }
+      .card {
+        background: white;
+        border-radius: 12px;
+        padding: 18px;
+        box-shadow: 0 6px 18px rgba(16, 24, 40, 0.06);
+        transition: transform 0.2s;
+      }
+      .card:hover {
+        transform: translateY(-6px);
+      }
+      .icon {
+        font-size: 28px;
+        margin-bottom: 8px;
+      }
+      footer {
+        background: var(--primary);
+        color: #fff;
+        padding: 24px;
+        margin-top: 24px;
+      }
+      .footer-grid {
+        max-width: 1100px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: 240px 1fr 240px;
+        gap: 18px;
+        padding: 0 18px;
+      }
+      @media (max-width: 900px) {
+        .footer-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+      .fade-in {
+        animation: fadeIn 0.6s ease both;
+      }
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(6px);
+        }
+        to {
+          opacity: 1;
+          transform: none;
+        }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        * {
+          animation: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="container nav">
+        <div class="brand">Academic City Navigator</div>
+        <div class="burger" id="burger">
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+        <nav id="nav" style="margin-left: auto">
+          <a href="index.html">Home</a>
+          <a href="map.html">Map</a>
+          <a href="universities.html">Universities</a>
+          <a href="departments.html" class="active">Departments</a>
+          <a href="housing.html">Housing</a>
+          <a href="facilities.html">Facilities</a>
+          <a href="transport.html">Transport</a>
+        </nav>
+      </div>
+    </header>
+    <main class="container">
+      <section class="hero fade-in">
+        <h1>Departments & Programs</h1>
+        <p style="opacity: 0.92; margin-top: 8px">
+          Explore areas of study across DIAC.
+        </p>
+      </section>
+
+      <section style="margin-top: 20px" class="fade-in">
+        <div class="grid">
+          <div class="card">
+            <div class="icon">💻</div>
+            <h3>Computer Science</h3>
+            <p>
+              AI, cybersecurity, and data analytics — offered across several
+              DIAC campuses.
+            </p>
+          </div>
+          <div class="card">
+            <div class="icon">🏗️</div>
+            <h3>Engineering</h3>
+            <p>
+              Mechanical, civil and electrical engineering programs with modern
+              labs.
+            </p>
+          </div>
+          <div class="card">
+            <div class="icon">💼</div>
+            <h3>Business</h3>
+            <p>
+              Management, finance and entrepreneurship programs designed for
+              global careers.
+            </p>
+          </div>
+          <div class="card">
+            <div class="icon">🎨</div>
+            <h3>Design & Media</h3>
+            <p>Digital design, media production and communications pathways.</p>
+          </div>
+          <div class="card">
+            <div class="icon">🔬</div>
+            <h3>Sciences</h3>
+            <p>
+              Applied sciences, biotech and environmental research programs.
+            </p>
+          </div>
+          <div class="card">
+            <div class="icon">⚖️</div>
+            <h3>Law & Humanities</h3>
+            <p>International relations, legal studies and social sciences.</p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="footer-grid">
+        <div>
+          <strong>Academic City Navigator</strong>
+          <div style="margin-top: 8px">
+            Department listings for demonstration.
+          </div>
+        </div>
+        <div>
+          <strong>Explore</strong>
+          <div style="margin-top: 8px">
+            <a
+              href="universities.html"
+              style="color: #fff; text-decoration: none"
+              >Universities</a
+            >
+            · <a href="map.html" style="color: #fff">Map</a>
+          </div>
+        </div>
+        <div>
+          <strong>Contact</strong>
+          <div style="margin-top: 8px">
+            info@academiccity.ae<br />+971 4 123 4567
+          </div>
+        </div>
+      </div>
+    </footer>
+    <script>
+      const burger = document.getElementById("burger");
+      const nav = document.getElementById("nav");
+      burger.addEventListener("click", () => {
+        nav.classList.toggle("open");
+      });
+    </script>
+  </body>
+</html>

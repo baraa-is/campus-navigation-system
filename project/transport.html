@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/><title>Academic City — Transport</title>
+<link rel="stylesheet" href="nav.css">
+<style>
+  .burger {
+        display: none;
+        flex-direction: column;
+        cursor: pointer;
+        gap: 5px;
+      }
+      .burger div {
+        width: 24px;
+        height: 3px;
+        background: white;
+        border-radius: 2px;
+      }
+ @media (max-width: 768px) {
+        nav {
+          display: none;
+          flex-direction: column;
+          background: linear-gradient(90deg, var(--primary), var(--brand));
+          position: absolute;
+          top: 64px;
+          right: 18px;
+          padding: 12px;
+          border-radius: 8px;
+          box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+          z-index: 100;
+        }
+        nav.open {
+          display: flex;
+          z-index: 1000;
+        }
+        .burger {
+          display: flex;
+        }
+      }
+  :root{--primary:#0f172a;--brand:#1e40af;--accent:#d4af37;--bg:#f6f8fb}
+  *{box-sizing:border-box} body{margin:0;font-family:Inter,system-ui,Roboto,Arial;background:var(--bg);color:var(--primary)}
+  header{background:linear-gradient(90deg,var(--primary),var(--brand));color:white;padding:16px}
+  .container{max-width:1100px;margin:0 auto;padding:0 18px}
+  .nav{display:flex;align-items:center;gap:20px}
+  .brand{font-weight:700;font-size:18px;letter-spacing:0.4px}
+  nav a{color:rgba(255,255,255,0.9);text-decoration:none;padding:8px 12px;border-radius:8px}
+  nav a.active, nav a:hover{background:rgba(255,255,255,0.06)}
+  .hero{background-image:url('https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=1400&q=60');background-size:cover;padding:64px;border-radius:12px;color:white;box-shadow:0 8px 30px rgba(16,24,40,.12);margin-top: 100px;}
+  .hero h1{margin:0;font-size:30px}
+  main{padding:28px 0}
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px}
+  .card{background:white;border-radius:12px;padding:16px;box-shadow:0 6px 18px rgba(16,24,40,.06);transition:transform .2s}
+  .card:hover{transform:translateY(-6px)}
+  .chip{display:inline-block;padding:6px 10px;border-radius:999px;background:#eef2ff;color:var(--brand);font-weight:700;margin-top:8px}
+  footer{background:var(--primary);color:#fff;padding:24px;margin-top:24px}
+  .footer-grid{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:240px 1fr 240px;gap:18px;padding:0 18px}
+  .fade-in{animation:fadeIn .6s ease both}
+  @keyframes fadeIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+  @media (prefers-reduced-motion:reduce){*{animation:none}}
+</style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <div class="brand">Academic City Navigator</div>
+      <div class="burger" id="burger">
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+      <nav style="margin-left:auto" id="nav">
+        <a href="index.html" class="active">Home</a>
+        <a href="map.html">Map</a>
+        <a href="universities.html">Universities</a>
+        <a href="departments.html">Departments</a>
+        <a href="housing.html">Housing</a>
+        <a href="facilities.html">Facilities</a>
+        <a href="transport.html" class="active">Transport</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero fade-in"><h1>Getting Around Academic City</h1><p style="opacity:.92;margin-top:8px">Shuttle details, RTA routes and taxi pickup areas to move easily.</p></section>
+
+    <section style="margin-top:18px" class="fade-in">
+      <div class="grid">
+        <div class="card"><h3>Campus Shuttle</h3><p>Free shuttle between major campuses and parking areas.</p><div class="chip">Every 30 mins</div></div>
+
+        <div class="card"><h3>RTA Bus Routes</h3><p>Bus 365 connects DIAC with Rashidiya Metro. Check RTA schedule for timings.</p></div>
+
+        <div class="card"><h3>Taxi & Ride-hail</h3><p>Pick-up zones at the main roundabout and university entrances. Use Careem or Uber.</p></div>
+
+        <div class="card"><h3>Parking Zones</h3><p>Shaded parking close to university clusters; weekend free parking in designated lots.</p></div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-grid">
+      <div><strong>Academic City Navigator</strong><div style="margin-top:8px">Transport & shuttle information for DIAC</div></div>
+      <div><strong>Useful links</strong><div style="margin-top:8px"><a href="transport.html" style="color:#fff;text-decoration:none">Transport</a> · <a href="map.html" style="color:#fff">Map</a></div></div>
+      <div><strong>Contact</strong><div style="margin-top:8px">transport@academiccity.ae<br/>+971 4 123 4567</div></div>
+    </div>
+  </footer>
+  <script>
+      const burger = document.getElementById("burger");
+      const nav = document.getElementById("nav");
+      burger.addEventListener("click", () => {
+        nav.classList.toggle("open");
+      });
+    </script>
+</body>
+</html>
